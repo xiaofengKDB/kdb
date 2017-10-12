@@ -1,0 +1,399 @@
+body {
+	text-align:center;
+	margin:0px;
+	padding:0px;
+    background: #F1F0EE;
+}
+.login {
+    width: 714px;
+    height: 662px;
+    margin: 0 auto;
+    margin-top: 110px;
+}
+.login_title {
+    background-image: url(../image/login/login_title.png);
+    background-position: -400px 45%;
+    background-repeat: no-repeat;
+    height: 130px;
+}
+/*.home_title {
+    background-image: url(../../image/login/login_title.png);
+    background-position: -100px 15%;
+    background-repeat: no-repeat;
+    height: 30px;
+}*/
+.sysName {
+    font-family: "微软雅黑";
+    font-weight: bold;
+    font-size: 39px;
+    color: rgb(74, 74, 131);
+    line-height: 130px;
+    padding-left: 275px;
+}
+.sys_home {
+    font-family: "微软雅黑";
+    font-weight: 650;
+    font-size: 30px;
+    color: rgb(205,200,245);
+    line-height: 100px;
+    padding-right: 200px;
+}
+.sys_alert {
+    font-family: "微软雅黑";
+    line-height: 21px;
+    font-weight: 50;
+    font-size: 15px;
+    color: rgb(205,200,245);
+    line-height: 10px;
+    padding-right: 20px;
+}
+.home_user {
+    font-family: "微软雅黑";
+    line-height: 15px;
+    font-weight: 20;
+    font-size: 15px;
+    color: rgb(205,200,245);
+    line-height: 15px;
+    padding-right: 25px;
+}
+.sys_title {
+	background-image: url(../image/login/login_title.png);
+    background-repeat: no-repeat;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 1200px;
+	height: 100px;
+	background: #292c51;
+}
+.login_inputPanel {
+    background-image: url(../image/login/login_bg.png);
+    background-repeat: no-repeat;
+    width: 714px;
+    height: 470px;
+    margin-top: 10px;
+    position: relative;
+}
+
+.login_inputPanel input{
+    background-color: #F1F0EE;
+    border:1px solid #353F5D;
+	color:rgb(74, 74, 131);
+    width: 415px;
+    height: 50px;
+    font-size:22px;
+    padding-left: 55px;
+}
+.logoutdiv{
+	font-family: "宋体";
+    line-height: 21px;
+    font-weight: 50;
+    font-size: 15px;
+    color: rgb(255,240,245);
+    line-height: 10px;
+    padding-right: 20px;
+}
+.user{
+    position: absolute;
+    top: 100px;
+    left: 130px;
+}
+
+.key{
+    position: absolute;
+    top: 180px;
+    left: 130px; 
+}
+
+.user_icon{
+    position: absolute;
+    top: 100px;
+    left: 130px;
+    width: 65px;
+    height: 50px;
+    background-image: url(../image/login/user.png);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+.key_icon{
+    position: absolute;
+    top: 180px;
+    left: 130px; 
+    width: 65px;
+    height: 50px;
+    background-image: url(../image/login/key.png);
+    background-repeat: no-repeat;
+    background-position: 0 50%;
+}
+
+.tip{
+    color:red;
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 250px;
+    left: 130px;
+}
+
+.loginBtn{
+    position: absolute;
+    top: 300px;
+    left: 130px; 
+}
+
+
+.loginBtn a{
+    width: 415px;
+    height: 50px;
+    font-family: "微软雅黑";
+    background-color: orange;
+    border: 0px;
+    font-size: 23px;
+    font-weight: bold;
+    color: white;
+    letter-spacing:10px;
+    display: block;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
+}
+/*忘记密码按钮主样式*/
+.loginBtn2 a{
+    width: 150px;
+    height: 50px;
+    font-family: "微软雅黑";
+    border: 0px;
+    font-size: 23px;
+    font-weight: bold;
+    color: orange;
+    letter-spacing:5px;
+    display: block;
+    text-decoration: none;
+    line-height: 50px;
+    text-align: center;
+}
+.loginBtn2 {
+    position: absolute;
+    top: 365px;
+    left: 420px; 
+}
+/*忘记密码页面样式*/
+.forgetPwd button{
+	padding:0px 0px;
+}
+.forgetPwdGroup div{
+	padding:0px 0px;
+}
+
+
+@charset "utf-8";
+/* CSS Document */
+div.tabFrame{
+	background-color:#fff !important;
+	padding-top:10px;
+}
+.home_img{
+	background-image:url(../image/login/home_img.png);
+	background-position:top left;
+	background-repeat:no-repeat;
+	width:1024px;
+	height:200px;
+	margin-bottom:0px;
+}
+.homeMsg h2{
+	font-family: 微软雅黑;
+	font-size:14px;
+	line-height:30px;
+	color:#292c51;
+}
+.homeMsg h1{
+	margin-left:15px;
+	font-family: 微软雅黑;
+	font-size:18px;
+	line-height:40px;
+	color:#292c51;
+	font-weight:bold;
+	border-bottom:2px solid #c7c7c7;
+}
+.homeMsg{
+	font-family: 微软雅黑;
+	font-size:14px;
+	line-height:30px;
+	padding-left:20px;
+	z-index: 21;
+	color:#5e5e5e;
+	background-color:#fff;
+}
+.homeMsg ul{
+	padding-left:30px;
+	margin-top:20px;
+}
+.homeMsg ul li{
+	list-style-image:url(../image/login/li_bg.png);
+	margin-bottom:20px;
+}
+.homeMsg ul li span{
+	color:#000;
+	display:block;
+}
+.homeMsg ul li a{
+	color:#1f39d8;
+	text-decoration:none;
+}
+.homeMsg ul li a:hover{
+	text-decoration:underline;
+	cursor:pointer;
+}
+
+@CHARSET "UTF-8";
+
+.webTitle{
+	width:100%;
+	color: #292c51;
+	font-size: 48px;
+	text-align: center;
+	height:20%;
+	background-image: url(../image/login/login_bg.png);
+}
+.loginmain{
+	width: 1200px;
+	margin: auto;
+}
+.loginmain>img{
+	top: 20px;
+	position: absolute;
+}
+.loginForm{
+	width: 400px;
+	padding-top: 25px;
+	margin: auto;
+}
+
+.hint{
+	color: red;
+	font-size: 18px;
+}
+.userName{
+	width:348px;
+	font-size: 18px;
+	line-height:100%;
+	padding: 13.5px 25px;
+	border:1px solid #989DA0;
+	margin: 25px  1px  0px  1px;
+}
+.pwdDiv{
+	width:396px;
+	height:48px;
+	font-size: 18px;
+	border:1px solid #989DA0;
+	margin: 50px  1px  0px  1px;
+	overflow:hidden;
+}
+.userNamfocus{
+	border:1px solid #5069E0;
+	box-shadow:0 0 5px rgba(82, 104, 224, .5);
+}
+.pwdDiv span{
+	color:#989DA0;
+	display: block;
+	float: right;
+	padding: 0px 22px;
+	line-height:48px;
+	height:48px;
+	border-left:1px solid #989DA0;
+	cursor: pointer;
+}
+.passWord,.passWord1{
+	/* width:259px; */
+	width:348px;
+	border:none;
+	border:0px;
+	line-height:100%;
+	padding: 13.5px 25px;
+	font-size: 18px;
+}
+.passWord1{
+	display: none;
+}
+.forgetPwd{
+	font-size: 14px;
+	margin:15px 0px 45px 0px;
+}
+
+.forgetPwd a{
+	color: #989DA0;
+} 
+.subBtn{
+	width: 400px;
+	color: #fff;
+	font-size: 22px;
+	line-height: 50px;
+	border: none;
+	border-radius:4px;
+	background-color: #5069E0;
+	cursor: pointer;
+}
+.webInfo{
+    text-align:center;
+	overflow:hidden;
+	width: 1200px;;
+	color: #fff;
+	bottom:0px;
+	line-height:30px;
+	font-size: 14px;
+	background: #000;
+	position:absolute;
+	z-index: 1;
+}
+.triangle-topleft {
+    width: 0;
+    height: 0;
+    border-top: 30px solid #000;
+    border-right: 30px solid #E68514;
+	float:right;
+}
+.bottomBg{
+	position:absolute;
+	width: 100%;
+	bottom:0px;
+	overflow: hidden;
+}
+.bottomBg li{
+	width:50%;
+	height:30px;
+	float: left;
+}
+.top{
+height: 71px;
+overflow: hidden;
+/* background-color: #F3F3F5; */
+background-color: #292c51 !important;
+}
+.right-bottom{
+		height: 36px;
+		line-height: 36px;
+		font-size: 12px;
+		text-align: center;
+		color: #696A6C;
+		padding-right: 10px;
+	}
+	
+.right{
+	float: left;
+	height: 100%;
+	overflow: hidden;
+	border-top: 1px solid #E6EAED;
+}
+.right-top{
+	height: 40px;
+	width: 100%;
+	overflow: hidden;
+	border-bottom: 2px solid #368bd7;
+}
+.update-modal-footer {
+	background-color:#fff;
+}
+#div-modal-update-password {
+	background-color:#fff;
+}
