@@ -9,7 +9,7 @@
 	<link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
   	<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
   	<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
-  	<script type="text/javascript" src="/js/angular.min.js"></script>
+  	<script type="text/javascript" src="/js/angular.js"></script>
 </head>
 
 <body>

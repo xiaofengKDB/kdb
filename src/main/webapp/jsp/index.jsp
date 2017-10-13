@@ -16,10 +16,10 @@
   	
 <body >
 	<div class="sui-navbar navbar-fixed-top">
-  <div class="navbar-inner"><a href="#" class="sui-brand">SUI</a>
+  <div class="navbar-inner"><a href="#" class="sui-brand">KDB</a>
     <ul class="sui-nav">
-      <li class="active"><a href="#">首页</a></li>
-      <li><a href="#">订单列表</a></li>
+      <li class="active"><a href="/">首页</a></li>
+      <li><a href="/order/view">订单列表</a></li>
       <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
         <ul role="menu" class="sui-dropdown-menu">
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
