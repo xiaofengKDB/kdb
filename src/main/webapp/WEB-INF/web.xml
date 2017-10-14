@@ -21,6 +21,26 @@
 		<!-- 默认匹配所有的请求 -->
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>    
+        <servlet-name>default</servlet-name>    
+        <url-pattern>*.jpg</url-pattern>  
+        <url-pattern>*.png</url-pattern>  
+        <url-pattern>*.gif</url-pattern>  
+        <url-pattern>*.css</url-pattern>  
+        <url-pattern>*.js</url-pattern>  
+        <url-pattern>*.swf</url-pattern>  
+        <url-pattern>*.pdf</url-pattern>  
+        <url-pattern>*.java</url-pattern>  
+        <url-pattern>*.class</url-pattern>  
+        <url-pattern>*.xls</url-pattern>  
+        <url-pattern>*.xlsx</url-pattern>  
+        <url-pattern>*.et</url-pattern>  
+        <url-pattern>*.vm</url-pattern>  
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.ico</url-pattern>  
+    </servlet-mapping>
+	
 	<!-- 配置编码过滤 -->
 	<filter>  
         <filter-name>characterEncodingFilter</filter-name>  
@@ -39,6 +59,6 @@
         <url-pattern>/*</url-pattern>  
     </filter-mapping> 
 	<welcome-file-list>
-	<welcome-file>index.jsp</welcome-file>
+	<welcome-file>index.html</welcome-file>
 </welcome-file-list>
 </web-app>

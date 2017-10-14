@@ -73,7 +73,7 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView login(HttpServletRequest request, HttpServletResponse response)
 	{
-		ModelAndView mv = new ModelAndView("/login");
+		ModelAndView mv = new ModelAndView("/login.html");
 		//先清理当前session
 		HttpSession session = request.getSession();
 		if(session != null){
@@ -192,7 +192,7 @@ public class LoginController {
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
 	public ModelAndView index(HttpSession session)
 	{
-		ModelAndView mv = new ModelAndView("/index");
+		ModelAndView mv = new ModelAndView("/index.html");
 		return mv;
 	}
 	
@@ -208,7 +208,7 @@ public class LoginController {
 		session.removeAttribute("userName");
 		session.removeAttribute("name");
 		session.invalidate();
-		ModelAndView mv = new ModelAndView("/login");
+		ModelAndView mv = new ModelAndView("/login.html");
 		return mv;
 	}
 }
