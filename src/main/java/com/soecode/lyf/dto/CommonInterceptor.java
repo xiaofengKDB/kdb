@@ -48,7 +48,8 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
         String username =  (String)request.getSession().getAttribute("userName");   
         if(username == null){  
             log.info("Interceptor：跳转到login页面！");  
-            request.getRequestDispatcher("/login").forward(request, response);  
+//            request.getRequestDispatcher("/login").forward(request, response);  
+            response.sendRedirect("/login");
             return false;  
         }else  
             return true;     

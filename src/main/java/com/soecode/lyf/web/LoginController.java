@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.soecode.lyf.dto.RequestParameter;
 import com.soecode.lyf.dto.ResponseMsg;
 import com.soecode.lyf.dto.Result;
@@ -170,16 +171,17 @@ public class LoginController {
 //				logger.error("加载部门信息错误:"+userName);
 //				return errorMsg(msg,"加载部门信息错误");
 //			}
-			session.setAttribute("user", user);//存放用户实体
-			session.setAttribute("userName", user.getUsername());//存放用户登录名
-			session.setAttribute("name", user.getName());//存放用户名字
-			//存放用户原始部门信息，切换部门时使用
-			
-			msg.errorCode = 0;
-			msg.msg = "操作成功";
-	//		更新用户登录时间  如果用户的创建时间为空 那么也更新用户的创建时间
-			logger.info("登录用户名为:{}", userName);
-			return msg;
+		user.setPassword(null);
+		session.setAttribute("user", JSON.toJSONString(user));//存放用户实体
+		session.setAttribute("userName", user.getUsername());//存放用户登录名
+		session.setAttribute("name", user.getName());//存放用户名字
+		//存放用户原始部门信息，切换部门时使用
+		
+		msg.errorCode = 0;
+		msg.msg = "操作成功";
+//		更新用户登录时间  如果用户的创建时间为空 那么也更新用户的创建时间
+		logger.info("登录用户名为:{}", userName);
+		return msg;
 	}
 	/**
 	 * home
@@ -193,6 +195,7 @@ public class LoginController {
 	public ModelAndView index(HttpSession session)
 	{
 		ModelAndView mv = new ModelAndView("/index.html");
+		mv.addObject(session);
 		return mv;
 	}
 	
@@ -210,5 +213,23 @@ public class LoginController {
 		session.invalidate();
 		ModelAndView mv = new ModelAndView("/login.html");
 		return mv;
+	}
+	
+	@RequestMapping(value="getSession",method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseMsg getSession(HttpServletRequest rq,HttpServletResponse rp){
+		ResponseMsg responseMsg = new ResponseMsg();
+		HttpSession session = rq.getSession();
+		String userJson = (String) session.getAttribute("user");
+		
+		if(userJson != null){
+//			User user = (User) JSON.parseObject(userJson);
+			User user = JSON.parseObject(userJson,User.class);
+			responseMsg.data = user;
+			responseMsg.errorCode = 0;
+			return responseMsg;
+		}
+		responseMsg.msg="获取session失败";
+		return responseMsg;
 	}
 }

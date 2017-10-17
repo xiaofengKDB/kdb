@@ -16,25 +16,30 @@
   	
 <body >
 	<div class="sui-navbar navbar-fixed-top">
-  <div class="navbar-inner"><a href="#" class="sui-brand">KDB</a>
-    <ul class="sui-nav">
-      <li class="active"><a href="/">首页</a></li>
-      <li><a href="/order/view">订单列表</a></li>
-      <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
-        <ul role="menu" class="sui-dropdown-menu">
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">版权申明</a></li>
-        </ul>
-      </li>
-      <li >
-      	<a id="name">欢迎您：</a>
-      	<input type="hidden" id="username"/>
-      </li>
-      <li>
-      	<a  href="/loginout">退出</a>
-      </li>
-    </ul>
+	
+  <div id="menu" class="navbar-inner menu-wrapper float-right">
+  	<a class="sui-brand">KDB</a>
+  	<nav id="mega-menu-holder" class="clearfix">
+	    <ul class="sui-nav clearfix">
+	      <li class="active" id="active-item"><a href="/">首页</a></li>
+	      <li><a href="orderList.html" >订单列表</a></li>
+	      <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">其他 <i class="caret"></i></a>
+	        <ul role="menu" class="sui-dropdown-menu">
+	          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
+	          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">版权申明</a></li>
+	        </ul>
+	      </li>
+	      <li >
+	      	<a id="name">欢迎您：</a>
+	      	<input type="hidden" id="username"/>
+	      </li>
+	      <li>
+	      	<a  href="/loginout">退出</a>
+	      </li>
+	    </ul>
+	</nav>
   </div>
+  
 </div>
 </body>
 <script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>

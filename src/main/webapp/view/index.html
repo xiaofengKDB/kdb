@@ -9,7 +9,6 @@
 	
   	<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
   	<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
-  	<script type="text/javascript" src="/js/angular.min.js"></script>
   	
   	
 <body >
@@ -35,14 +34,10 @@
   </div>
 </div>
 </body>
-<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
 var username;
 $(function(){
-	var user="<%=session.getAttribute("name")%>"; 
-	username = "<%=session.getAttribute("userName")%>"; 
-	$("#name").html("欢迎您："+user);
-	$("#username").val(username);
+	getSession();
 });
 function loginout(){
 	if(username == null){
@@ -64,6 +59,19 @@ function loginout(){
             } else {
                 $(".error").html(oData.msg);
             }
+        }
+    });
+}
+
+function getSession(){
+	$.ajax({
+        type: "POST",
+        url: "/getSession",
+        contentType: "application/json",
+        success: function(data) {
+            console.log(data);
+            $("#name").html("欢迎您："+data.data.name);
+        	$("#username").val(data.data.username);
         }
     });
 }
