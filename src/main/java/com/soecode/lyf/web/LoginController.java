@@ -19,10 +19,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.soecode.lyf.dto.RequestParameter;
+import com.soecode.lyf.common.RequestParameter;
+import com.soecode.lyf.common.Result;
 import com.soecode.lyf.dto.ResponseMsg;
-import com.soecode.lyf.dto.Result;
 import com.soecode.lyf.entity.User;
 import com.soecode.lyf.service.UserService;
 
@@ -100,7 +99,7 @@ public class LoginController {
 			return errorMsg(msg,"系统异常");
 		}
 		if(!result.isSuccess()){//根据用户名和密码不成功 则判断用户是否存在
-			return errorMsg(msg,result.getError());
+			return errorMsg(msg,result.getErrorMessage());
 		}
 		User user = result.getData();//获取存放的用户信息
 		if (user == null) {//如果没有用户直接返回错误

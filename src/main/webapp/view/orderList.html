@@ -6,12 +6,15 @@
 </head>
 	<link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-table.css" rel="stylesheet">
 	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
 	
 	
   	<script type="text/javascript" src="http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js"></script>
   	<script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
   	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src="/js/bootstrap-table.js"></script>
+  	<script type="text/javascript" src="/js/bootstrap-table-zh-CN.js"></script>
   	
   	
 <body >
@@ -36,7 +39,7 @@
     </ul>
   </div>
 	<div>
-		<form class="form-inline" action="/order/list" method='post'>
+		<form class="form-inline" id = "roderListForm" action="/order/list" method='post'>
 		<fieldset>
 		  <div class="form-group">
 		    <label for="wxusername">手机号</label>
@@ -54,7 +57,7 @@
 		    <label for="orderId">结束时间</label>
 		    <input type="text" class="form-control input-medium input-date" id="orderId" name="startTime">
 		  </div>
-		  <button type="submit" class="btn btn-default">查询</button>
+		  <button type="button" class="btn btn-default" onclick="initTable();">查询</button>
 		  </fieldset>
 		</form>
 	</div>
@@ -65,6 +68,7 @@
 </div>
 
 </body>
+</html>
 <script type="text/javascript">
 var username;
 $(function(){
@@ -112,43 +116,16 @@ function getSession(){
     });
 }
 
-function doQuery(params){
-    $('#demo-table').bootstrapTable('refresh');    //刷新表格
-}
 
 function initTable(){
+	$("#orderTable").bootstrapTable("destroy");
     var url = "/order/list";
-    $('#orderTable').bootstrapTable({
-        method:'POST',
-        dataType:'json',
-        contentType: "application/x-www-form-urlencoded",
-        cache: false,
-        striped: true,                              //是否显示行间隔色
-        sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
-        url:url,
-        height: $(window).height() - 110,
-        width:$(window).width(),
-        showColumns:true,
-        pagination:true,
-        queryParams : queryParams,
-        minimumCountColumns:2,
-        pageNumber:1,                       //初始化加载第一页，默认第一页
-               pageSize: 20,                       //每页的记录行数（*）
-              pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
-              uniqueId: "id",                     //每一行的唯一标识，一般为主键列
-        showExport: true,                    
-        exportDataType: 'all',
-        responseHandler: responseHandler,
-        columns: [
-        /* {
-            field: '',
-                    title: 'Sort No.',
-                    formatter: function (value, row, index) {
-                    return index+1;
-             }
-        }, */
-        {
-            field : 'orderId',
+  //加载表格数据
+	$("#orderTable").bootstrapTable({
+		url:url,
+		cache:true,
+		columns:[{
+            field : 'orderid',
             title : '订单编号',
             align : 'center',
             valign : 'middle',
@@ -159,9 +136,61 @@ function initTable(){
             align : 'center',
             valign : 'middle',
             sortable : true
-        }]
-    });
+        }],
+		//服务返回值
+		responseHandler:function(res) {
+			
+			/*if(5 == res.errorCode) {
+				window.location.href= "../index.html";
+			}*/
+			
+			if(res.total != 0) {
+				return {
+					"total":res.total,
+					"rows":res.result
+				};
+			} else {
+				return {
+					"total":0,
+					"rows":[]
+				}
+			}
+		},
+		dataType:"json",
+		contentType:"application/json",
+		method:"POST",
+		pagination:true,
+		sidePagination:"server",
+		pageSize:5,
+		silentSort:false,
+		paginationPreText:"<",
+		paginationNextText:">",
+		//传参
+		queryParams:function(params) {
+			var temp = {
+				pageSize : params.limit,
+				currentPage : (params.offset+params.limit)/params.limit,
+				orderBy:"orderId",
+				data:serializeObject($("#roderListForm"))
+			};
+			return JSON.stringify(temp);
+		},
+		queryParamsType:"limit",
+		onLoadError:function(status) {
+			if(status == 500) {
+				bootbox.alert({
+					title:'温馨提示',
+					message:'后台服务忙,请稍后再试......',
+					className:'bootModal',
+		        });
+			}
+		}
+	});
 }
+
+
+
+
 
 function initDate(){
     var start = {
@@ -221,5 +250,17 @@ function responseHandler(res) {
         };
     }
 }
+serializeObject = function(form) {
+	var o = {};
+	$.each(form.serializeArray(), function(index) {
+		if (this['value'] != undefined && this['value'].length > 0) {// 如果表单项的值非空，才进行序列化操作
+			if (o[this['name']]) {
+				o[this['name']] = o[this['name']] + "," + this['value'];
+			} else {
+				o[this['name']] = this['value'];
+			}
+		}
+	});
+	return o;
+};
 </script>
-</html>

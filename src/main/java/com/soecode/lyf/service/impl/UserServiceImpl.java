@@ -4,9 +4,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.soecode.lyf.common.Result;
 import com.soecode.lyf.dao.UserMapper;
 import com.soecode.lyf.dto.MD5Util;
-import com.soecode.lyf.dto.Result;
 import com.soecode.lyf.entity.User;
 import com.soecode.lyf.service.UserService;
 
@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 			result.setData(user);
 		}else{
 			result.setSuccess(false);
-			result.setError("用户名或者密码错误");
+			result.setError(0,"userError","用户名或者密码错误");
 		}
 		return result;
 	}
