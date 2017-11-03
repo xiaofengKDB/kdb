@@ -79,7 +79,7 @@ public class LoginController {
 		if(session != null){
 			if (request.getSession().getAttribute("userName") != null) {
 				//如果登陆过了直接跳转首页
-				mv = new ModelAndView("redirect:/index");
+				mv = new ModelAndView("redirect:./index");
 			}else{
 				session.invalidate();
 			}

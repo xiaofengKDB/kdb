@@ -49,7 +49,7 @@ public class CommonInterceptor extends HandlerInterceptorAdapter{
         if(username == null){  
             log.info("Interceptor：跳转到login页面！");  
 //            request.getRequestDispatcher("/login").forward(request, response);  
-            response.sendRedirect("/login");
+            response.sendRedirect("./login");
             return false;  
         }else  
             return true;     
