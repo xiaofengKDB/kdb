@@ -105,7 +105,7 @@ public class WxUserController {
 				if(StringUtils.isNotBlank(rqUrl) && rqUrl.contains("prodetail")){
 					rp.sendRedirect(rqUrl);
 				}else{
-					rp.sendRedirect("./wxUser/addExpressOrder");
+					rp.sendRedirect("./addExpressOrder");
 				}
 			}
 			
