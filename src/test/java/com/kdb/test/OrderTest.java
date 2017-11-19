@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import com.soecode.lyf.common.Query;
 import com.soecode.lyf.entity.OrderQuery;
-import com.soecode.lyf.entity.WxOrder;
 import com.soecode.lyf.service.OrderService;
 
 public class OrderTest extends JunitBaseTest{

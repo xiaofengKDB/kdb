@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.soecode.lyf.entity.WxOrder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,10 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.soecode.lyf.common.PageBase;
 import com.soecode.lyf.common.Query;
-import com.soecode.lyf.common.ResultList;
-import com.soecode.lyf.dto.ResponseMsg;
 import com.soecode.lyf.entity.OrderQuery;
-import com.soecode.lyf.entity.WxOrder;
 import com.soecode.lyf.service.OrderService;
 
 @Controller

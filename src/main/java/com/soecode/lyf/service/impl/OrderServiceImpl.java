@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.soecode.lyf.service.WxOrderService;
 import org.springframework.stereotype.Service;
 
 import com.soecode.lyf.common.Query;
@@ -13,7 +14,7 @@ import com.soecode.lyf.entity.WxOrder;
 import com.soecode.lyf.service.OrderService;
 
 @Service
-public class OrderServiceImpl implements OrderService {
+public class OrderServiceImpl implements OrderService ,WxOrderService{
 	
 	@Resource
 	private WxOrderMapper wxOrderDao;
@@ -37,4 +38,8 @@ public class OrderServiceImpl implements OrderService {
 		return wxOrderDao.count(order);
 	}
 
+	@Override
+	public void insertWxOrder(WxOrder wxOrder) {
+		wxOrderDao.insert(wxOrder);
+	}
 }
